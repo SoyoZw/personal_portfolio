@@ -1,14 +1,23 @@
 
 import './App.css';
 import React from 'react';
-import { BrowserRouter as router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from "./Pages/Home/NavBar";
 import Home from "./Pages/Home/Homescreen";
 
 
 function App() {
   return (
     <div className="App">
-      <Home />
+     <Router>
+      <div>
+        <Navbar/>
+        <Routes>
+          <Route path="/" element={<Home/>}></Route>
+          <Route path="*" element={<div>404 not found</div>}></Route>
+        </Routes>
+      </div>
+     </Router>
     </div>
   );
 }
